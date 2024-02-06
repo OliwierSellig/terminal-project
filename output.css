@@ -52,7 +52,7 @@ body {
 }
 
 .why-us {
-  padding-top: 70px;
+  padding: 70px 0 12px;
   width: 1410px;
   margin: 0 auto;
   display: flex;
@@ -62,15 +62,11 @@ body {
 .why-us__header {
   text-align: center;
   margin-bottom: 72px;
-  color: var(--color-dark-300);
-}
-.why-us__heading {
-  font-size: 36px;
-  margin-bottom: 16px;
 }
 .why-us__subheading {
   font-size: 18px;
   font-weight: 300;
+  color: var(--color-dark-300);
 }
 .why-us__subheading span {
   color: var(--color-orange-200);
@@ -162,11 +158,96 @@ body {
 .why-us__button:hover::after, .why-us__button:focus::after {
   background-image: url("./svg/picture_as_pdf-white.svg");
 }
-.why-us span {
+.why-us__button span {
   padding: 12px 16px;
   border-right: 1px var(--color-orange-200) solid;
   text-transform: uppercase;
   transition: border-right 0.2s;
+}
+
+.faq {
+  position: relative;
+  padding-bottom: 96px;
+  min-height: 760px;
+}
+.faq__container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 1410px;
+  margin: 0 auto;
+  gap: 96px;
+}
+.faq::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: var(--color-orange-300);
+  clip-path: polygon(0% 100%, 0% 23%, 100% 5%, 100% 100%);
+  z-index: -1;
+}
+.faq__questions {
+  display: flex;
+  gap: 12px;
+  flex-direction: column;
+  align-self: flex-start;
+  width: 50%;
+}
+.faq__item {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.faq__open {
+  background-color: var(--color-white);
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  border: none;
+  cursor: pointer;
+  padding: 12px 24px;
+  border-radius: 10px;
+}
+.faq__open--icon {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: var(--color-orange-200);
+  display: flex;
+  align-items: end;
+  justify-content: center;
+  font-size: 16px;
+  color: var(--color-white);
+  font-weight: 700;
+}
+.faq__open--text {
+  color: var(--color-orange-200);
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 1;
+}
+.faq__content {
+  display: none;
+}
+.faq__cover {
+  position: absolute;
+  bottom: 0;
+  right: 13%;
+}
+
+.heading {
+  font-size: 36px;
+  margin-bottom: 16px;
+  color: var(--color-dark-300);
+}
+
+.footer {
+  width: 100%;
+  height: 96px;
+  background-color: var(--color-dark-100);
 }
 
 /*# sourceMappingURL=output.css.map */
