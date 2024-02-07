@@ -1,4 +1,4 @@
-# Termianl Project (Oliwier Sellig)
+# Terminal Project (Oliwier Sellig)
 
 This is a recruitment project. The design was purely outsourced. The work I've done here is to bring it to life.
 
@@ -11,7 +11,7 @@ npm i
 ### Local Development
 
 ```
-npm run dev
+npm start
 ```
 
 ## Technologies I used
