@@ -37,6 +37,11 @@ ul {
   font-weight: normal;
 }
 
+body {
+  font-family: "Open Sans", sans-serif;
+  overflow-x: hidden;
+}
+
 ol,
 ul {
   list-style: none;
@@ -47,13 +52,9 @@ img {
   height: auto;
 }
 
-body {
-  font-family: "Open Sans", sans-serif;
-}
-
 .why-us {
-  padding: 70px 0 12px;
-  width: 1410px;
+  padding: 70px 16px 92px;
+  max-width: 1460px;
   margin: 0 auto;
   display: flex;
   flex-direction: column;
@@ -74,8 +75,20 @@ body {
 .why-us__features {
   display: flex;
   justify-content: center;
-  gap: 64px;
+  gap: 54px;
   margin-bottom: 64px;
+}
+@media only screen and (max-width: 1320px) {
+  .why-us__features {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media only screen and (max-width: 720px) {
+  .why-us__features {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
 }
 .why-us__item {
   position: relative;
@@ -86,22 +99,40 @@ body {
   align-items: center;
   text-align: center;
   justify-content: center;
-  padding: 36px 28px;
+  padding: 36px 22px;
   transition: box-shadow 0.3s;
+  flex-shrink: 1;
 }
 .why-us__item:hover {
   box-shadow: 0px 0px 15px rgba(243, 146, 34, 0.5803921569);
+}
+@media only screen and (max-width: 1320px) {
+  .why-us__item:nth-child(2)::after {
+    display: none;
+  }
+}
+@media only screen and (max-width: 720px) {
+  .why-us__item:nth-child(2)::after {
+    display: block;
+  }
 }
 .why-us__item:not(:last-child)::after {
   position: absolute;
   right: 0%;
   top: 50%;
-  transform: translate(42px, -50%);
+  transform: translate(37px, -50%);
   content: "";
   width: 20px;
   height: 20px;
   background-color: var(--color-orange-200);
   border-radius: 50%;
+}
+@media only screen and (max-width: 720px) {
+  .why-us__item:not(:last-child)::after {
+    top: 100%;
+    left: 50%;
+    transform: translate(-50%, 17px);
+  }
 }
 .why-us__icon {
   flex: 1;
@@ -117,7 +148,10 @@ body {
   margin-bottom: 20px;
 }
 .why-us__item-heading span {
+  padding: 0px 12px;
   background-color: var(--color-dark-200);
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
 }
 .why-us__description {
   font-size: 12px;
@@ -138,7 +172,7 @@ body {
 }
 .why-us__button::after {
   content: "";
-  background-image: url("./svg/picture_as_pdf.svg");
+  background-image: url("./svg/pdf-icon.svg");
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -151,12 +185,13 @@ body {
 .why-us__button:hover, .why-us__button:focus {
   background-color: var(--color-orange-300);
   color: var(--color-white);
+  outline: none;
 }
 .why-us__button:hover span, .why-us__button:focus span {
   border-right: 1px var(--color-white) solid;
 }
 .why-us__button:hover::after, .why-us__button:focus::after {
-  background-image: url("./svg/picture_as_pdf-white.svg");
+  background-image: url("./svg/pdf-icon-white.svg");
 }
 .why-us__button span {
   padding: 12px 16px;
@@ -167,16 +202,6 @@ body {
 
 .faq {
   position: relative;
-  padding-bottom: 96px;
-  min-height: 760px;
-}
-.faq__container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 1410px;
-  margin: 0 auto;
-  gap: 96px;
 }
 .faq::after {
   content: "";
@@ -186,8 +211,37 @@ body {
   width: 100%;
   height: 100%;
   background-color: var(--color-orange-300);
-  clip-path: polygon(0% 100%, 0% 23%, 100% 5%, 100% 100%);
+  clip-path: polygon(0% 100%, 0% 20%, 100% 5%, 100% 100%);
   z-index: -1;
+}
+@media only screen and (max-width: 1360px) {
+  .faq::after {
+    clip-path: polygon(0% 100%, 0% 150px, 100% 100px, 100% 100%);
+  }
+}
+.faq__container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 1460px;
+  margin: 0 auto;
+  padding: 0 16px;
+  gap: 108px;
+  min-height: 760px;
+  padding-bottom: 96px;
+}
+@media only screen and (max-width: 1360px) {
+  .faq__container {
+    padding-bottom: 64px;
+    min-height: auto;
+  }
+}
+@media only screen and (max-width: 600px) {
+  .faq__container {
+    padding-bottom: 64px;
+    min-height: auto;
+  }
 }
 .faq__questions {
   display: flex;
@@ -196,10 +250,20 @@ body {
   align-self: flex-start;
   width: 50%;
 }
+@media only screen and (max-width: 1360px) {
+  .faq__questions {
+    align-self: center;
+    width: 100%;
+    max-width: 800px;
+  }
+}
 .faq__item {
   width: 100%;
   display: flex;
   flex-direction: column;
+  border: 1px solid var(--color-white);
+  border-radius: 10px;
+  overflow: hidden;
 }
 .faq__open {
   background-color: var(--color-white);
@@ -211,17 +275,36 @@ body {
   padding: 12px 24px;
   border-radius: 10px;
 }
+@media only screen and (max-width: 540px) {
+  .faq__open {
+    padding: 12px;
+    gap: 8px;
+  }
+}
 .faq__open--icon {
+  position: relative;
+  flex-shrink: 0;
   width: 20px;
   height: 20px;
   border-radius: 50%;
   background-color: var(--color-orange-200);
   display: flex;
-  align-items: end;
+  align-items: center;
   justify-content: center;
   font-size: 16px;
   color: var(--color-white);
   font-weight: 700;
+  transition: background-image 0.2s;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  line-height: 0;
+}
+.faq__open--plus {
+  background-image: url("./svg/plus.svg");
+}
+.faq__open--minus {
+  background-image: url("./svg/minus.svg");
 }
 .faq__open--text {
   color: var(--color-orange-200);
@@ -229,19 +312,44 @@ body {
   font-weight: 700;
   line-height: 1;
 }
+@media only screen and (max-width: 540px) {
+  .faq__open--text {
+    font-size: 12px;
+  }
+}
 .faq__content {
-  display: none;
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.3s;
+}
+.faq__content--open {
+  grid-template-rows: 1fr;
+}
+.faq__box {
+  overflow: hidden;
+}
+.faq__text {
+  font-size: 12px;
+  color: var(--color-white);
+  overflow: hidden;
+  padding: 12px 16px;
 }
 .faq__cover {
   position: absolute;
   bottom: 0;
-  right: 13%;
+  right: 2%;
+}
+@media only screen and (max-width: 1360px) {
+  .faq__cover {
+    display: none;
+  }
 }
 
 .heading {
   font-size: 36px;
   margin-bottom: 16px;
   color: var(--color-dark-300);
+  text-align: center;
 }
 
 .footer {
